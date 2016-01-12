@@ -2,7 +2,15 @@
 <html>
 {{> head }}
 <body>
-
+    <div id="time-tracker" class="time-tracker">
+        <button id="add-task">Add task</button>
+    </div>
+    <script type="text/html" id="task-template">
+        <button class="task__start">Start</button>
+        <button class="task__pause">Pause</button>
+        <button class="task__end">Stop</button>
+        <button class="task__delete">Delete</button>
+    </script>
     <script src="js/common.js"></script>
     <script src="js/app.js"></script>
 </body>
