@@ -4,7 +4,7 @@ var NODE_ENV = process.env.NODE_ENV || 'development',
 module.exports = {
     context: __dirname + '/js',
     entry: {
-        index: './index',
+        app: './app',
         common: './common' // for example - libraries initialization
     },
     output: {
