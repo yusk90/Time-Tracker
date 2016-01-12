@@ -2,7 +2,7 @@ import Backbone from 'backbone';
 
 let TaskModel = Backbone.Model.extend({
     defaults: {
-        taskName: '',
+        name: '',
         time: 0,
         cost: 0
     }
