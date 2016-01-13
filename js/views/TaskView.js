@@ -58,7 +58,10 @@ let TaskView = Backbone.View.extend({
         }
     },
     pauseTask: function () {
+        let task = this.model;
         clearInterval(this.counterId);
+        task.save('cost', task.calculateCost());
+        this.renderCost();
     },
     stopTask: function () {
         let task = this.model;

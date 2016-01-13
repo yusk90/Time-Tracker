@@ -22,7 +22,7 @@
 .time-tracker__add-task {
     position: absolute;
     bottom: 15px;
-    right: 12px;
+    left: 12px;
 }
 
 .time-tracker__add-task:after,
