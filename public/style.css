@@ -1,0 +1,181 @@
+.button {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0 3px;
+  padding: 0;
+  border-radius: 50%;
+  background: #eee;
+  vertical-align: top;
+  text-align: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px -3px rgba(0, 0, 0, 0.45);
+}
+
+.button:active {
+  box-shadow: 1px 1px 8px -3px rgba(0, 0, 0, 0.45);
+}
+
+.time-tracker {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px 10px 65px;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px -3px rgba(0, 0, 0, 0.45);
+  background: #8ee5ee;
+}
+
+.time-tracker__title {
+  font-size: 20px;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.time-tracker__add-task {
+  position: absolute;
+  bottom: 15px;
+  left: 12px;
+}
+
+.time-tracker__add-task:after,
+.time-tracker__add-task:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  margin: auto;
+  background: #000;
+}
+
+.time-tracker__add-task:after {
+  width: 16px;
+  height: 4px;
+}
+
+.time-tracker__add-task:before {
+  width: 4px;
+  height: 16px;
+}
+
+.task {
+  padding: 10px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.task:last-child {
+  border-bottom: none;
+}
+
+.task__name {
+  padding: 5px 0;
+  font-size: 20px;
+  outline: none;
+}
+
+.task__time {
+  margin-bottom: 8px;
+  font-size: 40px;
+  text-align: center;
+}
+
+.task__rate-label {
+  float: left;
+  width: 150px;
+}
+
+.task__rate-input {
+  width: 55px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.task__cost-wrapper {
+  float: right;
+}
+
+.task__buttons {
+  padding-top: 15px;
+  text-align: center;
+  clear: both;
+}
+
+.task__start:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 3px;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  margin: auto;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 10px solid #000;
+}
+
+.task__pause:before,
+.task__pause:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  height: 14px;
+  width: 4px;
+  margin: auto 0;
+  background: #000;
+}
+
+.task__pause:before {
+  left: 15px;
+}
+
+.task__pause:after {
+  right: 15px;
+}
+
+.task__stop:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  height: 14px;
+  width: 14px;
+  margin: auto;
+  background: #000;
+}
+
+.task__delete:after,
+.task__delete:before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 12px;
+  height: 4px;
+  width: 17px;
+  background: #000;
+}
+
+.task__delete:before {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.task__delete:after {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}

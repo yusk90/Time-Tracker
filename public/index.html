@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Time tracker</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="style.css" type="text/css" media="all">
+</head>
+<body>
+    <div id="time-tracker" class="time-tracker">
+        <h1 class="time-tracker__title">Time tracker</h1>
+        <button id="add-task" class="button time-tracker__add-task" title="Add task"></button>
+    </div>
+    <script type="text/html" id="task-template">
+        <div class="task__name" contenteditable="true"><%= name %></div>
+        <div class="task__time"><%= (totalTime[0] < 10) ? '0' + totalTime[0] : totalTime[0]
+                                 %>:<%= (totalTime[1] < 10) ? '0' + totalTime[1] :
+                                 totalTime[1]
+                                 %>:<%= (totalTime[2] < 10) ? '0' + totalTime[2] :
+                                 totalTime[2]
+                                 %></div>
+        <label class="task__rate-label">
+            Rate: <input class="task__rate-input" type="number"/> rub/h
+        </label>
+        <div class="task__cost-wrapper">Cost: <span class="task__cost"><%= cost.toFixed(2) %> <%= currency %></span></div>
+        <div class="task__buttons">
+            <button class="button task__start" title="Start"></button>
+            <button class="button task__pause" title="Pause"></button>
+            <button class="button task__stop" title="Stop"></button>
+            <button class="button task__delete" title="Delete"></button>
+        </div>
+    </script>
+    <script src="js/common.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
