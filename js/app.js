@@ -1,4 +1,4 @@
-import TaskModel from './models/TaskModel.js';
-import AppView from './views/AppView.js';
+import TaskModel from './models/TaskModel';
+import AppView from './views/AppView';
 
 new AppView();

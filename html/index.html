@@ -6,10 +6,23 @@
         <button id="add-task">Add task</button>
     </div>
     <script type="text/html" id="task-template">
-        <button class="task__start">Start</button>
-        <button class="task__pause">Pause</button>
-        <button class="task__end">Stop</button>
-        <button class="task__delete">Delete</button>
+        <div class="task__name" contenteditable="true"><%= name %></div>
+        <span class="task__time"><%= (totalTime[0] < 10) ? '0' + totalTime[0] : totalTime[0]
+                                 %>:<%= (totalTime[1] < 10) ? '0' + totalTime[1] :
+                                 totalTime[1]
+                                 %>:<%= (totalTime[2] < 10) ? '0' + totalTime[2] :
+                                 totalTime[2]
+                                 %></span>
+        <label class="task__rate-label">
+            <input class="task__rate-input" type="number"/>rub/h
+        </label>
+        <div class="task__cost"><%= cost.toFixed(2) %> <%= currency %></div>
+        <div class="controls">
+            <button class="controls__button controls__start">Start</button>
+            <button class="controls__button controls__pause">Pause</button>
+            <button class="controls__button controls__stop">Stop</button>
+            <button class="controls__button controls__delete">Delete</button>
+        </div>
     </script>
     <script src="js/common.js"></script>
     <script src="js/app.js"></script>
