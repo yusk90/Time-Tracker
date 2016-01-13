@@ -1,0 +1,48 @@
+.time-tracker {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px 10px 65px;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px -3px rgba(0, 0, 0, 0.45);
+    background: #8ee5ee;
+}
+
+.time-tracker__title {
+    font-size: 20px;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.time-tracker__add-task {
+    position: absolute;
+    bottom: 15px;
+    right: 12px;
+}
+
+.time-tracker__add-task:after,
+.time-tracker__add-task:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    margin: auto;
+    background: #000;
+}
+
+.time-tracker__add-task:after {
+    width: 16px;
+    height: 4px;
+}
+
+.time-tracker__add-task:before {
+    width: 4px;
+    height: 16px;
+}

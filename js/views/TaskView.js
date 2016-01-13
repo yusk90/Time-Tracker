@@ -7,22 +7,25 @@ let TaskView = Backbone.View.extend({
     className: 'task',
     template: _.template($('#task-template').html()),
     events: {
-        'click .controls__start': 'startTask',
-        'click .controls__pause': 'pauseTask',
-        'click .controls__stop': 'stopTask',
-        'click .controls__delete': 'deleteTask',
+        'click .task__start': 'startTask',
+        'click .task__pause': 'pauseTask',
+        'click .task__stop': 'stopTask',
+        'click .task__delete': 'deleteTask',
         'blur .task__name, .task__rate-input': 'saveOnBlur'
     },
     counterId: null,
     initialize: function () {
-        this.listenTo(this.model, 'change:counter', this.renderTimer);
+        this.listenTo(this.model, 'change:counter', this.renderTimer)
+            .listenTo(this.model, 'change:cost', this.renderCost);
     },
     saveOnBlur: function (e) {
-        let $target = $(e.target);
+        let $target = $(e.target),
+            task = this.model;
         if ($target.hasClass('task__name')) {
-            this.model.save('name', $target.text());
+            task.save('name', $target.text());
         } else if ($target.hasClass('task__rate-input')) {
-            this.model.save('rate', $target.val());
+            task.save('rate', Number($target.val()));
+            task.save('cost', task.calculateCost());
         }
     },
     render: function () {
@@ -34,6 +37,10 @@ let TaskView = Backbone.View.extend({
         let time = this.model.get('totalTime'),
             format = this.model.addLeadingZero;
         this.$('.task__time').html(_.map(time, format).join(':'));
+    },
+    renderCost: function () {
+        let task = this.model;
+        this.$('.task__cost').html(`${task.get('cost').toFixed(2)} ${task.get('currency')}`);
     },
     startTask: function () {
         let task = this.model;
@@ -63,7 +70,7 @@ let TaskView = Backbone.View.extend({
             completed: true,
             cost: task.calculateCost()
         });
-        this.$('.task__cost').html(`${task.get('cost').toFixed(2)} ${task.get('currency')}`);
+        this.renderCost();
     },
     deleteTask: function () {
         this.unbind();

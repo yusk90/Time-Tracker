@@ -1,0 +1,107 @@
+.task {
+    padding: 10px 0 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.task:last-child {
+    border-bottom: none;
+}
+
+.task__name {
+    padding: 5px 0;
+    font-size: 20px;
+    outline: none;
+}
+
+.task__time {
+    margin-bottom: 8px;
+    font-size: 40px;
+    text-align: center;
+}
+
+.task__rate-label {
+    float: left;
+    width: 150px;
+}
+
+.task__rate-input {
+    width: 55px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.task__cost-wrapper {
+    float: right;
+}
+
+.task__buttons {
+    padding-top: 15px;
+    text-align: center;
+    clear: both;
+}
+
+.task__start:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 3px;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    margin: auto;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 10px solid #000;
+}
+
+.task__pause:before,
+.task__pause:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    height: 14px;
+    width: 4px;
+    margin: auto 0;
+    background: #000;
+}
+
+.task__pause:before {
+    left: 15px;
+}
+
+.task__pause:after {
+    right: 15px;
+}
+
+.task__stop:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    height: 14px;
+    width: 14px;
+    margin: auto;
+    background: #000;
+}
+
+.task__delete:after,
+.task__delete:before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 12px;
+    height: 4px;
+    width: 17px;
+    background: #000;
+}
+
+.task__delete:before {
+    transform: rotate(45deg);
+}
+
+.task__delete:after {
+    transform: rotate(-45deg);
+}
