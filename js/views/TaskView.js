@@ -6,6 +6,7 @@ let TaskView = Backbone.View.extend({
     tagName: 'div',
     className: 'task',
     template: _.template($('#task-template').html()),
+    isRunning: false,
     events: {
         'click .task__start': 'startTask',
         'click .task__pause': 'pauseTask',
@@ -44,7 +45,8 @@ let TaskView = Backbone.View.extend({
     },
     startTask: function () {
         let task = this.model;
-        if (!task.get('completed')) {
+        if (!task.get('completed') && !this.isRunning) {
+            this.isRunning = true;
             this.renderTimer();
             this.counterId = setInterval(function () {
                 task.save({
@@ -59,12 +61,14 @@ let TaskView = Backbone.View.extend({
     },
     pauseTask: function () {
         let task = this.model;
+        this.isRunning = false;
         clearInterval(this.counterId);
         task.save('cost', task.calculateCost());
         this.renderCost();
     },
     stopTask: function () {
         let task = this.model;
+        this.isRunning = false;
         if (!task.get('endTime')) {
             task.save('endTime', Date.now());
         }
